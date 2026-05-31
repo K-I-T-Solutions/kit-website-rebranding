@@ -19,3 +19,16 @@ kit-it-koblenz.de, www.kit-it-koblenz.de {
         Cache-Control "public, max-age=3600"
     }
 }
+
+tools.kit-it-koblenz.de {
+    encode gzip zstd
+
+    reverse_proxy kit_oauth2_proxy:4180
+
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Cache-Control "private, no-store"
+    }
+}
