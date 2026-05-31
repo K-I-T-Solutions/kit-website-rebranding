@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    container_name: kit_website
+    restart: unless-stopped
+    ports:
+      - 3010:80

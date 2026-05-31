@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K.I.T. Solutions — Business IT, Event-Technologie &amp; Custom Software</title>
+  <meta name="description" content="K.I.T. Solutions aus Koblenz — Ihr persönlicher IT-Partner für Business IT, Event-Technologie und Custom Software. Direkt. Persönlich. Mit Joshua." />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #FF6B35;
+      --blue:   #3B82F6;
+      --cyan:   #06B6D4;
+      --navy:   #0F1629;
+      --navy2:  #131929;
+      --navy3:  #1a2236;
+      --border: #1e2a44;
+      --text:   #c8d0e0;
+      --muted:  #6b7a99;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--navy);
+      color: var(--text);
+      font-family: "Inter", system-ui, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(15, 22, 41, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
+    .nav-logo img { width: 36px; }
+    .nav-logo span { font-weight: 700; font-size: 1rem; color: #eee; }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .9rem;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: #eee; }
+
+    .nav-cta {
+      background: var(--orange);
+      color: #fff;
+      text-decoration: none;
+      padding: .5rem 1.2rem;
+      border-radius: 6px;
+      font-size: .875rem;
+      font-weight: 600;
+      transition: opacity .2s;
+    }
+
+    .nav-cta:hover { opacity: .85; }
+
+    .nav-mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: .25rem;
+      color: #eee;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(255,107,53,.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 70%, rgba(6,182,212,.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--navy2);
+      border: 1px solid rgba(255,107,53,.3);
+      border-radius: 999px;
+      padding: .35rem 1rem;
+      font-size: .78rem;
+      color: var(--orange);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badge::before {
+      content: "";
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 0 8px var(--orange);
+      animation: pulse 2s infinite;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #f0f4ff;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-text h1 span { color: var(--orange); }
+
+    .hero-text p {
+      font-size: 1.05rem;
+      color: var(--text);
+      max-width: 480px;
+      margin-bottom: 1rem;
+      line-height: 1.75;
+    }
+
+    .hero-quote {
+      font-size: .9rem;
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: #fff;
+      text-decoration: none;
+      padding: .75rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: .95rem;
+      transition: opacity .2s, transform .15s;
+    }
+
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: transparent;
+      color: #eee;
+      text-decoration: none;
+      padding: .75rem 1.75rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: .95rem;
+      border: 1px solid var(--border);
+      transition: border-color .2s, transform .15s;
+    }
+
+    .btn-secondary:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-1px); }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-logo-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-logo-wrap::before {
+      content: "";
+      position: absolute;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,107,53,.12) 0%, transparent 70%);
+      animation: breathe 4s ease-in-out infinite;
+    }
+
+    .hero-logo-wrap img { width: 260px; position: relative; }
+
+    .hero-pills {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+      margin-top: 2rem;
+    }
+
+    .pill {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: .6rem 1rem;
+      font-size: .82rem;
+      color: var(--text);
+    }
+
+    .pill-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── ÜBER UNS ── */
+    #ueber { background: var(--navy2); }
+
+    .section-label {
+      font-size: .78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--cyan);
+      margin-bottom: .75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 800;
+      color: #f0f4ff;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-title span { color: var(--orange); }
+
+    .ueber-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .ueber-text p {
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .ueber-funfact {
+      background: var(--navy3);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--orange);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-size: .88rem;
+      color: var(--muted);
+      margin-top: 1.5rem;
+    }
+
+    .ueber-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--navy3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #f0f4ff;
+      line-height: 1;
+      margin-bottom: .25rem;
+    }
+
+    .stat-number span { color: var(--orange); }
+
+    .stat-label {
+      font-size: .78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    /* ── LEISTUNGEN ── */
+    #leistungen { }
+
+    .leistungen-intro {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .leistungen-intro p { color: var(--text); font-size: 1rem; }
+
+    .leistungen-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .leistung-card {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      transition: border-color .25s, transform .2s;
+    }
+
+    .leistung-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .leistung-card.blue  { border-top: 3px solid var(--blue); }
+    .leistung-card.blue:hover  { border-color: var(--blue); border-top-color: var(--blue); }
+    .leistung-card.orange { border-top: 3px solid var(--orange); }
+    .leistung-card.orange:hover { border-color: var(--orange); border-top-color: var(--orange); }
+    .leistung-card.cyan  { border-top: 3px solid var(--cyan); }
+    .leistung-card.cyan:hover  { border-color: var(--cyan); border-top-color: var(--cyan); }
+
+    .leistung-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .leistung-icon.blue   { background: rgba(59,130,246,.15); }
+    .leistung-icon.orange { background: rgba(255,107,53,.15); }
+    .leistung-icon.cyan   { background: rgba(6,182,212,.15); }
+
+    .leistung-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #f0f4ff;
+      margin-bottom: .5rem;
+    }
+
+    .leistung-card > p {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .leistung-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+    }
+
+    .leistung-list li {
+      font-size: .83rem;
+      color: var(--text);
+      display: flex;
+      align-items: flex-start;
+      gap: .5rem;
+    }
+
+    .leistung-list li::before {
+      content: "–";
+      color: var(--muted);
+      flex-shrink: 0;
+      margin-top: .05em;
+    }
+
+    /* ── WORKMATEOS ── */
+    #workmate { background: var(--navy2); }
+
+    .workmate-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .workmate-text p {
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .workmate-highlight {
+      background: linear-gradient(135deg, rgba(255,107,53,.1), rgba(6,182,212,.08));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      font-size: .92rem;
+      color: var(--text);
+      font-style: italic;
+    }
+
+    .workmate-visual {
+      background: var(--navy3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+    }
+
+    .wm-badge {
+      display: inline-block;
+      background: rgba(255,107,53,.15);
+      color: var(--orange);
+      font-size: .75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .wm-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #f0f4ff;
+      margin-bottom: .5rem;
+    }
+
+    .wm-sub {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .wm-features {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+
+    .wm-feature {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      font-size: .88rem;
+      color: var(--text);
+    }
+
+    .wm-feature-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      flex-shrink: 0;
+    }
+
+    /* ── WARUM ── */
+    #warum { }
+
+    .warum-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .warum-card {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      transition: border-color .2s;
+    }
+
+    .warum-card:hover { border-color: rgba(255,107,53,.3); }
+
+    .warum-icon {
+      font-size: 1.75rem;
+      margin-bottom: .75rem;
+      display: block;
+    }
+
+    .warum-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f0f4ff;
+      margin-bottom: .4rem;
+    }
+
+    .warum-card p {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── JOSHUA ── */
+    #joshua { background: var(--navy2); }
+
+    .joshua-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .joshua-card {
+      background: var(--navy3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .joshua-avatar {
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 1rem;
+      border: 3px solid var(--border);
+    }
+
+    .joshua-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .joshua-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #f0f4ff;
+      margin-bottom: .2rem;
+    }
+
+    .joshua-role {
+      font-size: .82rem;
+      color: var(--muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .joshua-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      justify-content: center;
+    }
+
+    .tag {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: .25rem .75rem;
+      font-size: .75rem;
+      color: var(--text);
+    }
+
+    .joshua-text p {
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .joshua-quote {
+      background: var(--navy3);
+      border-left: 3px solid var(--orange);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      font-size: .95rem;
+      color: var(--text);
+      font-style: italic;
+      margin-top: 1.5rem;
+    }
+
+    /* ── KONTAKT ── */
+    #kontakt { }
+
+    .kontakt-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .kontakt-inner .section-label,
+    .kontakt-inner .section-title { text-align: center; }
+
+    .kontakt-inner > p {
+      color: var(--text);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.75;
+    }
+
+    .kontakt-card {
+      background: var(--navy2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .kontakt-email {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--cyan);
+      text-decoration: none;
+      display: block;
+      margin-bottom: .5rem;
+      transition: color .2s;
+    }
+
+    .kontakt-email:hover { color: #38d4f0; }
+
+    .kontakt-location {
+      font-size: .88rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy2);
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--cyan); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── ANIMATIONS ── */
+    @keyframes pulse {
+      0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--orange); }
+      50%       { opacity: .4; box-shadow: 0 0 3px var(--orange); }
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: .8; }
+      50%       { transform: scale(1.08); opacity: 1; }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner,
+      .ueber-grid,
+      .workmate-inner,
+      .joshua-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+
+      .hero-visual { display: none; }
+      .leistungen-grid { grid-template-columns: 1fr; }
+      .warum-grid { grid-template-columns: 1fr; }
+      .ueber-stats { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: block; }
+      section { padding: 4rem 1.25rem; }
+      .hero-buttons { flex-direction: column; }
+      .btn-primary, .btn-secondary { text-align: center; }
+      .ueber-stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#hero">
+      <img src="/logo.svg" alt="K.I.T. Solutions" />
+      <span>K.I.T. Solutions</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#ueber">Über uns</a></li>
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#warum">Warum K.I.T.</a></li>
+      <li><a href="#joshua">Team</a></li>
+    </ul>
+    <a class="nav-cta" href="#kontakt">Kontakt</a>
+    <button class="nav-mobile-toggle" aria-label="Menü öffnen">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="19" y2="6"/>
+        <line x1="3" y1="11" x2="19" y2="11"/>
+        <line x1="3" y1="16" x2="19" y2="16"/>
+      </svg>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-text fade-up">
+        <div class="hero-badge">Koblenz &middot; Deutschland</div>
+        <h1>IT, die mit<br>Ihnen <span>w&auml;chst.</span></h1>
+        <p>Ob B&uuml;ro, B&uuml;hne oder Byte &mdash; K.I.T. Solutions ist Ihr pers&ouml;nlicher IT-Partner. Kein Callcenter, kein Ticket-System ohne Ende. Nur echte Menschen, echte L&ouml;sungen &mdash; und ein direkter Draht zu Joshua.</p>
+        <p class="hero-quote">&bdquo;Miteinander statt F&uuml;hrend.&ldquo;</p>
+        <div class="hero-buttons">
+          <a class="btn-primary" href="#kontakt">Jetzt Kontakt aufnehmen</a>
+          <a class="btn-secondary" href="#leistungen">Leistungen entdecken</a>
+        </div>
+        <div class="hero-pills">
+          <div class="pill"><span class="pill-dot" style="background:var(--blue)"></span>Business IT &amp; Infrastruktur</div>
+          <div class="pill"><span class="pill-dot" style="background:var(--orange)"></span>Live &amp; Event-Technologie</div>
+          <div class="pill"><span class="pill-dot" style="background:var(--cyan)"></span>Custom Software Development</div>
+        </div>
+      </div>
+      <div class="hero-visual fade-up" style="transition-delay:.2s">
+        <div class="hero-logo-wrap">
+          <img src="/logo.svg" alt="K.I.T. Solutions Logo" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER UNS -->
+  <section id="ueber">
+    <div class="container">
+      <div class="ueber-grid">
+        <div class="ueber-text fade-up">
+          <div class="section-label">Wer wir sind</div>
+          <h2 class="section-title">Kuhrau Informations&shy;technik &mdash; kurz <span>K.I.T.</span></h2>
+          <p>Der Name sagt alles: K.I.T. steht f&uuml;r Kuhrau InformationsTechnik &mdash; und f&uuml;r die &Uuml;berzeugung, dass IT pers&ouml;nlich sein muss. Gegr&uuml;ndet von Joshua Phu Kuhrau in Koblenz, mit dem Ziel, Technik zug&auml;nglich, fair und menschlich zu machen.</p>
+          <p>Wir sind kein anonymer IT-Konzern. Wir sind Ihr direkter Ansprechpartner &mdash; vom ersten Gespr&auml;ch bis zur fertigen L&ouml;sung. Schnell, transparent und auf Augenh&ouml;he.</p>
+          <div class="ueber-funfact">
+            Fun Fact: K.I.T. ist auch eine Hommage an KITT aus Knight Rider &mdash; denn die beste Technologie ist die, die wirklich f&uuml;r Menschen arbeitet.
+          </div>
+        </div>
+        <div class="ueber-stats fade-up" style="transition-delay:.15s">
+          <div class="stat-card">
+            <div class="stat-number">10<span>+</span></div>
+            <div class="stat-label">Jahre IT-Erfahrung</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Kompetenz&shy;bereiche</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">1</div>
+            <div class="stat-label">Direkter Ansprech&shy;partner</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" style="color:var(--cyan)">24h</div>
+            <div class="stat-label">Reaktionszeit</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN -->
+  <section id="leistungen">
+    <div class="container">
+      <div class="leistungen-intro fade-up">
+        <div class="section-label">Was wir tun</div>
+        <h2 class="section-title">Was wir f&uuml;r Sie tun.</h2>
+        <p>K.I.T. Solutions vereint drei Kompetenzbereiche unter einem Dach &mdash; damit Sie immer den richtigen Partner an Ihrer Seite haben, egal was die Situation verlangt.</p>
+      </div>
+      <div class="leistungen-grid">
+
+        <div class="leistung-card blue fade-up">
+          <div class="leistung-icon blue">&#128187;</div>
+          <h3>Business IT</h3>
+          <p>Ihre IT soll laufen &mdash; nicht nerven. Proaktiv, zuverl&auml;ssig, ohne Fachcinesisch.</p>
+          <ul class="leistung-list">
+            <li>IT-Support &amp; Helpdesk &mdash; schnell, direkt, auf den Punkt</li>
+            <li>Infrastruktur &amp; Netzwerk &mdash; stabil, sicher, skalierbar</li>
+            <li>Server &amp; Cloud &mdash; selbst gehostet oder hybrid</li>
+            <li>Monitoring &amp; Wartung &mdash; Probleme erkennen, bevor sie entstehen</li>
+            <li>WorkmateOS-Integration &mdash; Ihre Gesch&auml;ftsprozesse digital abgebildet</li>
+          </ul>
+        </div>
+
+        <div class="leistung-card orange fade-up" style="transition-delay:.1s">
+          <div class="leistung-icon orange">&#127909;</div>
+          <h3>Live &amp; Event Technology</h3>
+          <p>Technik, die im richtigen Moment funktioniert &mdash; keine zweite Chance.</p>
+          <ul class="leistung-list">
+            <li>Live Streaming &amp; Broadcasting &mdash; professionell f&uuml;r jede Gr&ouml;&szlig;e</li>
+            <li>Hybrid Events &mdash; in Person und online, nahtlos verbunden</li>
+            <li>Technische Planung &amp; Koordination &mdash; von der Konzeption bis Go-Live</li>
+            <li>Vor-Ort-Technik &mdash; Netzwerk, Audio, Video aus einer Hand</li>
+            <li>Schnelle Reaktion &mdash; auch kurzfristig f&uuml;r Sie da</li>
+          </ul>
+        </div>
+
+        <div class="leistung-card cyan fade-up" style="transition-delay:.2s">
+          <div class="leistung-icon cyan">&#9881;</div>
+          <h3>Custom Software Development</h3>
+          <p>Standard-Software passt selten perfekt. Wir entwickeln, was genau zu Ihrem Workflow passt.</p>
+          <ul class="leistung-list">
+            <li>Automatisierung &mdash; manuelle Prozesse abschaffen, Zeit gewinnen</li>
+            <li>Individuelle Tools &amp; Widgets &mdash; genau das, was Sie brauchen</li>
+            <li>WorkmateOS-Erweiterungen &mdash; Ihre Plattform, Ihre Regeln</li>
+            <li>API-Integrationen &mdash; Ihre Systeme sprechen miteinander</li>
+            <li>Open-Source-L&ouml;sungen &mdash; Transparenz als Prinzip</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKMATEOS -->
+  <section id="workmate">
+    <div class="container">
+      <div class="workmate-inner">
+        <div class="workmate-visual fade-up">
+          <div class="wm-badge">Eigenentwicklung</div>
+          <div class="wm-title">WorkmateOS</div>
+          <div class="wm-sub">Unsere eigene Business-Plattform</div>
+          <div class="wm-features">
+            <div class="wm-feature"><span class="wm-feature-dot"></span>CRM &amp; Kundenverwaltung</div>
+            <div class="wm-feature"><span class="wm-feature-dot"></span>Rechnungsstellung</div>
+            <div class="wm-feature"><span class="wm-feature-dot"></span>Projektmanagement</div>
+            <div class="wm-feature"><span class="wm-feature-dot"></span>Individuelle Erweiterungen</div>
+            <div class="wm-feature"><span class="wm-feature-dot"></span>Open-Source &amp; transparent</div>
+          </div>
+        </div>
+        <div class="workmate-text fade-up" style="transition-delay:.15s">
+          <div class="section-label">Aus der Praxis</div>
+          <h2 class="section-title">F&uuml;r die <span>Praxis.</span></h2>
+          <p>WorkmateOS ist unsere eigene Business-Plattform &mdash; entwickelt, weil wir die L&ouml;sung, die wir uns gew&uuml;nscht h&auml;tten, einfach selbst gebaut haben. CRM, Rechnungsstellung, Projektmanagement und mehr, in einem System.</p>
+          <p>Was das f&uuml;r Sie bedeutet: Wenn wir Ihre individuelle L&ouml;sung entwickeln, flie&szlig;t echtes Produktwissen ein. Wir kennen die Probleme, weil wir sie selbst gel&ouml;st haben.</p>
+          <div class="workmate-highlight">
+            Eigene Software. Echter Praxisbeweis.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WARUM K.I.T. -->
+  <section id="warum">
+    <div class="container">
+      <div class="fade-up" style="text-align:center; max-width:520px; margin:0 auto 1rem;">
+        <div class="section-label">Warum K.I.T. Solutions</div>
+        <h2 class="section-title">Vier gute Gr&uuml;nde.<br><span>Einer reicht.</span></h2>
+      </div>
+      <div class="warum-grid">
+
+        <div class="warum-card fade-up">
+          <span class="warum-icon">&#128100;</span>
+          <h3>Pers&ouml;nlicher Ansprechpartner</h3>
+          <p>Bei uns landen Sie nicht im Ticket-System. Joshua und das Team sind direkt erreichbar &mdash; per Telefon, Mail oder einfach kurze Nachricht. Kein Weiterleiten, kein Warten.</p>
+        </div>
+
+        <div class="warum-card fade-up" style="transition-delay:.1s">
+          <span class="warum-icon">&#9889;</span>
+          <h3>Schnelle Reaktionszeit</h3>
+          <p>IT-Probleme warten nicht. Wir auch nicht. Kurze Reaktionszeiten sind f&uuml;r uns kein Versprechen auf der Website &mdash; das ist unser Alltag.</p>
+        </div>
+
+        <div class="warum-card fade-up" style="transition-delay:.2s">
+          <span class="warum-icon">&#127919;</span>
+          <h3>Individuelle L&ouml;sungen</h3>
+          <p>Kein Unternehmen ist wie das andere. Wir h&ouml;ren zu, denken mit und entwickeln L&ouml;sungen, die wirklich passen &mdash; nicht solche, die irgendwie funktionieren.</p>
+        </div>
+
+        <div class="warum-card fade-up" style="transition-delay:.3s">
+          <span class="warum-icon">&#128182;</span>
+          <h3>Faire Preise</h3>
+          <p>Qualit&auml;t muss nicht unbezahlbar sein. Transparente Angebote, keine versteckten Kosten, ehrliche Kommunikation. Miteinander statt F&uuml;hrend &mdash; auch beim Preis.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- JOSHUA -->
+  <section id="joshua">
+    <div class="container">
+      <div class="joshua-inner">
+        <div class="joshua-card fade-up">
+          <div class="joshua-avatar"><img src="/joshua.png" alt="Joshua Phu Kuhrau" /></div>
+          <div class="joshua-name">Joshua Phu Kuhrau</div>
+          <div class="joshua-role">Gr&uuml;nder &amp; Gesch&auml;ftsf&uuml;hrer &middot; K.I.T. Solutions</div>
+          <div class="joshua-tags">
+            <span class="tag">Fachinformatiker</span>
+            <span class="tag">Koblenz</span>
+            <span class="tag">Business IT</span>
+            <span class="tag">Event-Tech</span>
+            <span class="tag">Open Source</span>
+          </div>
+        </div>
+        <div class="joshua-text fade-up" style="transition-delay:.15s">
+          <div class="section-label">Der Mensch hinter K.I.T.</div>
+          <h2 class="section-title">Ich bin <span>Joshua.</span></h2>
+          <p>Fachinformatiker, Gr&uuml;nder und Ihr direkter Ansprechpartner. K.I.T. Solutions ist nicht einfach ein Unternehmen. Es ist meine Antwort auf eine Arbeitswelt, in der Technik oft wichtiger genommen wird als die Menschen, die sie nutzen.</p>
+          <p>Seit &uuml;ber einem Jahrzehnt arbeite ich in der IT &mdash; von MES-Systemen bei Siemens &uuml;ber Infrastruktur-Projekte bis hin zu Event-Technik und eigener Software-Entwicklung. Koblenz ist meine Stadt, und K.I.T. Solutions ist mein Beitrag zu einer IT, die wirklich hilft.</p>
+          <div class="joshua-quote">
+            &bdquo;Leistung ja &mdash; aber nicht um jeden Preis. Mensch vor Technik.&ldquo;
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt">
+    <div class="container">
+      <div class="kontakt-inner fade-up">
+        <div class="section-label">Kontakt</div>
+        <h2 class="section-title">Bereit, wenn<br>Sie es <span>sind.</span></h2>
+        <p>Egal ob dringendes IT-Problem, geplantes Event oder die Idee f&uuml;r eine neue Software &mdash; schreiben Sie einfach an. Kein Formular-Labyrinth, kein automatischer Chatbot. Nur Joshua.</p>
+        <div class="kontakt-card">
+          <a class="kontakt-email" href="mailto:joshua@kit-it-koblenz.de">joshua@kit-it-koblenz.de</a>
+          <a class="kontakt-email" href="tel:+491741543053" style="color:var(--orange)">+49 174 1543053</a>
+          <div class="kontakt-location">Koblenz, Rheinland-Pfalz &middot; Deutschland</div>
+          <a class="btn-primary" href="mailto:joshua@kit-it-koblenz.de">Jetzt anfragen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 K.I.T. Solutions &mdash;
+      <a href="/impressum.html">Impressum</a>
+      &nbsp;&middot;&nbsp;
+      <a href="/kontakt.html">Kontakt</a>
+      &nbsp;&middot;&nbsp;
+      <a href="mailto:joshua@kit-it-koblenz.de">joshua@kit-it-koblenz.de</a>
+    </p>
+  </footer>
+
+  <script>
+    // Scroll-based fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Nav scroll effect
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 40
+        ? 'rgba(15,22,41,0.97)'
+        : 'rgba(15,22,41,0.85)';
+    }, { passive: true });
+  </script>
+
+</body>
+</html>

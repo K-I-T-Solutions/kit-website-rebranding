@@ -1,0 +1,16 @@
+kit-it-koblenz.de, www.kit-it-koblenz.de {
+    encode gzip zstd
+
+    @www host www.kit-it-koblenz.de
+    redir @www https://kit-it-koblenz.de{uri}
+
+    reverse_proxy web:80
+
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Frame-Options "DENY"
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Cache-Control "public, max-age=3600"
+    }
+}

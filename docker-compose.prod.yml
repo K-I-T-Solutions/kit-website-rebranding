@@ -1,0 +1,29 @@
+services:
+  web:
+    build: .
+    container_name: kit_website
+    restart: unless-stopped
+    networks:
+      - web
+
+  caddy:
+    image: caddy:alpine
+    container_name: kit_caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - web
+
+networks:
+  web:
+
+volumes:
+  caddy_data:
+  caddy_config:
