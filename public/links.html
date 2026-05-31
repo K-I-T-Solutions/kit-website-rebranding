@@ -341,6 +341,66 @@
       font-size: 0.88rem;
     }
 
+    .qr-panel {
+      position: relative;
+      z-index: 1;
+      margin-top: 18px;
+      padding: 20px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(26, 34, 54, 0.95), rgba(19, 25, 41, 0.92));
+      border: 1px solid rgba(148, 163, 184, 0.14);
+      display: grid;
+      grid-template-columns: 132px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .qr-panel img {
+      width: 132px;
+      height: 132px;
+      display: block;
+      border-radius: 16px;
+      background: #fff;
+      padding: 10px;
+    }
+
+    .qr-panel strong {
+      display: block;
+      font-size: 1rem;
+      color: #F5F8FF;
+      margin-bottom: 6px;
+    }
+
+    .qr-panel p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .qr-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .qr-actions a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      color: #F5F8FF;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.88rem;
+    }
+
+    .qr-actions a:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
     .footer-note a {
       color: #CFE4FF;
       text-decoration: none;
@@ -362,6 +422,9 @@
       }
       .link-card {
         grid-template-columns: auto 1fr;
+      }
+      .qr-panel {
+        grid-template-columns: 1fr;
       }
       .arrow { display: none; }
       .footer-note { flex-direction: column; }
@@ -431,6 +494,18 @@
           </div>
           <div class="arrow">&#8599;</div>
         </a>
+      </div>
+
+      <div class="qr-panel">
+        <img src="/qr-links.png" alt="QR-Code fuer https://kit-it-koblenz.de/links" />
+        <div>
+          <strong>QR-Code zur Linkpage</strong>
+          <p>Zum schnellen Teilen oder fuer Print. Der Code verweist direkt auf `https://kit-it-koblenz.de/links`.</p>
+          <div class="qr-actions">
+            <a href="/qr-links.png" target="_blank" rel="noopener noreferrer">PNG oeffnen</a>
+            <a href="/qr-links.svg" target="_blank" rel="noopener noreferrer">SVG oeffnen</a>
+          </div>
+        </div>
       </div>
 
       <div class="footer-note">
