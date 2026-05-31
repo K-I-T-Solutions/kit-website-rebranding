@@ -4,6 +4,11 @@ kit-it-koblenz.de, www.kit-it-koblenz.de {
     @www host www.kit-it-koblenz.de
     redir @www https://kit-it-koblenz.de{uri}
 
+    redir /kontakt /kontakt.html 301
+    redir /impressum /impressum.html 301
+    redir /links /links.html 301
+    redir /datenschutz / 301
+
     reverse_proxy web:80
 
     header {
