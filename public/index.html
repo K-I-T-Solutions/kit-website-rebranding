@@ -16,12 +16,14 @@
   <meta property="og:title" content="IT Support Koblenz, Event-Technik &amp; Custom Software | K.I.T. Solutions" />
   <meta property="og:description" content="IT Support in Koblenz, Event-Technik fuer Live-Formate und individuelle Softwareloesungen fuer Unternehmen." />
   <meta property="og:url" content="https://kit-it-koblenz.de/" />
-  <meta property="og:image" content="https://kit-it-koblenz.de/logo.png" />
-  <meta property="og:image:alt" content="K.I.T. Solutions Logo" />
+  <meta property="og:image" content="https://kit-it-koblenz.de/og-kit-solutions.png" />
+  <meta property="og:image:alt" content="K.I.T. Solutions — IT Support, Event-Technik und Custom Software aus Koblenz" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="IT Support Koblenz | K.I.T. Solutions" />
   <meta name="twitter:description" content="IT Support, Event-Technik und individuelle Software aus Koblenz." />
-  <meta name="twitter:image" content="https://kit-it-koblenz.de/logo.png" />
+  <meta name="twitter:image" content="https://kit-it-koblenz.de/og-kit-solutions.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -33,7 +35,7 @@
       "alternateName": "Kuhrau InformationsTechnik",
       "url": "https://kit-it-koblenz.de/",
       "logo": "https://kit-it-koblenz.de/logo.png",
-      "image": "https://kit-it-koblenz.de/logo.png",
+      "image": "https://kit-it-koblenz.de/og-kit-solutions.png",
       "description": "K.I.T. Solutions ist ein IT-Unternehmen aus Koblenz fuer IT Support, Event-Technologie und Custom Software Development.",
       "serviceType": [
         "IT Support",
@@ -56,6 +58,38 @@
       },
       "sameAs": [
         "https://github.com/K-I-T-Solutions"
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Bietet K.I.T. Solutions IT Support in Koblenz an?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. K.I.T. Solutions unterstuetzt Unternehmen in Koblenz und Umgebung bei IT Support, Infrastruktur, Netzwerken, Servern und laufendem Betrieb."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Unterstuetzt K.I.T. Solutions auch Event-Technik und Livestreams?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Das Leistungsspektrum umfasst Event-Technik, Hybrid-Events, Live-Streaming, technische Planung und Vor-Ort-Unterstuetzung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Entwickelt K.I.T. Solutions auch individuelle Software?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. K.I.T. Solutions entwickelt individuelle Software, Automatisierungen, APIs und Erweiterungen fuer bestehende Workflows und Plattformen."
+          }
+        }
       ]
     }
   </script>
@@ -586,6 +620,42 @@
       line-height: 1.65;
     }
 
+    /* ── FAQ ── */
+    #faq { background: var(--navy2); }
+
+    .faq-intro {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 2rem;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .faq-item {
+      background: var(--navy3);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.4rem;
+    }
+
+    .faq-item h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #f0f4ff;
+      line-height: 1.45;
+      margin-bottom: .75rem;
+    }
+
+    .faq-item p {
+      font-size: .9rem;
+      color: var(--text);
+      line-height: 1.75;
+    }
+
     /* ── JOSHUA ── */
     #joshua { background: var(--navy2); }
 
@@ -755,6 +825,7 @@
       .hero-visual { display: none; }
       .leistungen-grid { grid-template-columns: 1fr; }
       .warum-grid { grid-template-columns: 1fr; }
+      .faq-grid { grid-template-columns: 1fr; }
       .ueber-stats { grid-template-columns: 1fr 1fr; }
     }
 
@@ -970,6 +1041,31 @@
           <p>Qualit&auml;t muss nicht unbezahlbar sein. Transparente Angebote, keine versteckten Kosten, ehrliche Kommunikation. Miteinander statt F&uuml;hrend &mdash; auch beim Preis.</p>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="faq-intro fade-up">
+        <div class="section-label">FAQ</div>
+        <h2 class="section-title">H&auml;ufige Fragen<br><span>kurz beantwortet.</span></h2>
+        <p>Die meisten Anfragen drehen sich um IT Support in Koblenz, Event-Technik und individuelle Software. Hier sind die wichtigsten Antworten vorab.</p>
+      </div>
+      <div class="faq-grid">
+        <div class="faq-item fade-up">
+          <h3>Bietet K.I.T. Solutions IT Support in Koblenz an?</h3>
+          <p>Ja. Wir unterst&uuml;tzen Unternehmen in Koblenz und Umgebung bei IT Support, Infrastruktur, Netzwerken, Servern und dem laufenden Betrieb.</p>
+        </div>
+        <div class="faq-item fade-up" style="transition-delay:.1s">
+          <h3>Unterst&uuml;tzt K.I.T. Solutions auch Event-Technik und Livestreams?</h3>
+          <p>Ja. Wir begleiten Hybrid-Events, Streaming-Setups, technische Planung und Vor-Ort-Technik f&uuml;r Veranstaltungen ohne zweite Chance.</p>
+        </div>
+        <div class="faq-item fade-up" style="transition-delay:.2s">
+          <h3>Entwickelt K.I.T. Solutions auch individuelle Software?</h3>
+          <p>Ja. Wir bauen Automatisierungen, APIs, interne Tools und Erweiterungen, wenn Standardsoftware nicht sauber zu Ihrem Workflow passt.</p>
+        </div>
       </div>
     </div>
   </section>
